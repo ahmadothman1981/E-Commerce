@@ -9,11 +9,11 @@ class HomeSlide extends Model
 {
     use HasFactory;
 
-    protected $gaurded = [];
-    // protected $fillable = [
-    //    'title',
-    //    'short_title',
-    //    'home_slide',
-    //    'video_url',
-    //];
+   // protected $gaurded = [];
+     protected $fillable = [
+        'title',
+       'short_title',
+        'home_slide',
+        'video_url',
+    ];
 }

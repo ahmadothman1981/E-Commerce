@@ -10,24 +10,26 @@
                     <div class="card-body">
 
                         <h4 class="card-title">Home Slide Page</h4>
-                        <form method="post" action="{{ route('store.profile') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('update.slider') }}" enctype="multipart/form-data">
                             @csrf
+
+                            <input type="hidden" name="id" value="{{ $homeslide->id }}">
                              <div class="row mb-3">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-10">
-                                <input class="form-control" name="title " type="text"  id="example-text-input" value="{{ $homeslide->title }}">
+                                <input class="form-control" name="title" type="text"  id="example-text-input" value="{{ $homeslide->title }}">
                             </div>
                             </div>
                              <div class="row mb-3">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Short Title</label>
                             <div class="col-sm-10">
-                                <input class="form-control" name="short_title" type="email"  id="example-text-input" value="{{ $homeslide->short_title }}">
+                                <input class="form-control" name="short_title" type="text"  id="example-text-input" value="{{ $homeslide->short_title }}">
                             </div>
                             </div>
                              <div class="row mb-3">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Video URL</label>
                             <div class="col-sm-10">
-                                <input class="form-control" name="video_url " type="text"  id="example-text-input" value="{{ $homeslide->video_url  }}">
+                                <input class="form-control" name="video_url" type="text"  id="example-text-input" value="{{ $homeslide->video_url}}">
                             </div>
                             </div>
                              <div class="row mb-3">
