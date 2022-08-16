@@ -42,7 +42,7 @@
                             <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10">
 
-                              <img id="showImage" class="rounded avatar-lg" src="{{ (!empty($homeslide->home_slide))? url('upload/home_slide/'.$homeslide->home_slide):url('upload/No_Image.jpg') }}" alt="Card image cap">
+                              <img id="showImage" class="rounded avatar-lg" src="{{ (!empty($homeslide->home_slide))? url($homeslide->home_slide):url('upload/No_Image.jpg') }}" alt="Card image cap">
                             </div>
                             </div>
                             <input type="submit" class="btn btn-info waves-effect waves-light" value="Update_Slide">
