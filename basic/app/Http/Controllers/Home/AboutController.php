@@ -88,7 +88,7 @@ class AboutController extends Controller
 
         session()->flash('message','Multi Images Inserted Successfully');
 
-        return redirect()->back();
+        return redirect()->route('all.multi.image');
         
     }//end method
 
@@ -99,5 +99,46 @@ class AboutController extends Controller
 
         return view('admin.about_page.all_multiimage',compact('allMultiImage'));
         
+    }//end method
+
+    public function EditMultiImage($id)
+    {
+        $multiImage = MultiImage::findOrFail($id);
+
+        return view('admin.about_page.edit_multi_image',compact('multiImage'));
+    }//end method
+
+    public function UpdateMultiImage(Request $request)
+    {
+       $multi_image_id = $request->id;
+
+        if($request->file('multi_image'))
+        {
+            $image = $request->file('multi_image');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            Image::make($image)->resize(220,220)->save('upload/multi/'.$name_gen);
+            $save_url = 'upload/multi/'.$name_gen;
+            MultiImage::findOrFail( $multi_image_id)->update([
+                
+                'multi_image' => $save_url,
+            ]);
+
+        session()->flash('message','Image is updated  Successfully');
+
+        return redirect()->route('all.multi.image'); 
+        }
+    }//end method
+
+    public function DeleteMultiImage($id)
+    {
+
+        $multi = MultiImage::findOrFail($id);
+        $img = $multi->multi_image;
+        unlink($img);
+        MultiImage::findOrFail($id)->delete();
+
+        session()->flash('message','Image is deleted  Successfully'); 
+
+        return redirect()->back(); 
     }//end method
 }
