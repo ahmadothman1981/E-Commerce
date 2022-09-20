@@ -6,6 +6,7 @@ use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\PortfolioController;
 use App\Http\Controllers\Home\BlogCategoryController;
+use App\Http\Controllers\Home\BlogController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -91,6 +92,14 @@ Route::controller(BlogCategoryController::class)->group(function()
 
 });
 //////////////////////////////
+
+//Blog All 
+Route::controller(BlogController::class)->group(function()
+{
+    Route::get('/all/blog','AllBlog')->name('all.blog');
+    
+
+});
 
 
 Route::get('/dashboard', function () {
