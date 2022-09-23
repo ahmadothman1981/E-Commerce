@@ -50,8 +50,8 @@
             <td>{{ $item->blog_title }}</td>
             <td>{{ $item->blog_tags }}</td>
             <td><img src="{{ asset($item->blog_image) }}" style="width: 60px; height=60px;" ></td>
-            <td><a href="{{ route('edit.portfolio',$item->id) }}" class="btn btn-info" title="Edite Data"><i class="fas fa-edit"></i> </a>
-             <a href="{{ route('delete.portfolio',$item->id) }}" class="btn btn-danger" id="delete" title="Delete Data"><i class="fas fa-trash-alt"></i> </a></td>
+            <td><a href="{{ route('edit.blog',$item->id) }}" class="btn btn-info" title="Edite Data"><i class="fas fa-edit"></i> </a>
+             <a href="{{ route('delete.blog',$item->id) }}" class="btn btn-danger" id="delete" title="Delete Data"><i class="fas fa-trash-alt"></i> </a></td>
             
         </tr>
        		@endforeach
