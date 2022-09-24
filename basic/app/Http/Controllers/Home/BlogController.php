@@ -8,6 +8,7 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use Image;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -109,5 +110,23 @@ class BlogController extends Controller
         $blogs = Blog::findOrFail($id);
          $categories = BlogCategory::orderBy('blog_category','ASC')->get();
         return view('frontend.blog_details',compact('blogs','allblogs','categories'));
+    }//End Method
+
+    public function CategoryBlog($id)
+    {
+     $blogpost = Blog::where('blog_category_id',$id)->orderBy('id','DESC')->get();
+     $allblogs =  $blogs = Blog::latest()->limit(5)->get();
+     $categories = BlogCategory::orderBy('blog_category','ASC')->get();
+     $category_name = BlogCategory::findOrFail($id);
+
+     return view('frontend.cat_blog_details',compact('blogpost','allblogs','categories','category_name'));
+    }//End Method
+
+
+    public function HomeBlog()
+    {
+      $allblogs = Blog::latest()->get();
+      $categories = BlogCategory::orderBy('blog_category','ASC')->get();
+      return view('frontend.blog',compact('allblogs','categories'));  
     }//End Method
 }

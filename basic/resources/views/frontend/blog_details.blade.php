@@ -225,14 +225,14 @@
                                        @endforeach
                                     </ul>
                                 </div>
-                                <div class="widget">
-                                    <h4 class="widget-title">Categories</h4>
-                                    <ul class="sidebar__cat">
-                                    	@foreach(  $categories as $cat)
-                                        <li class="sidebar__cat__item"><a href="blog.html">{{ $cat->blog_category }}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </div>
+                <div class="widget">
+                    <h4 class="widget-title">Categories</h4>
+                    <ul class="sidebar__cat">
+                    	@foreach(  $categories as $cat)
+                        <li class="sidebar__cat__item"><a href="{{ route('category.blog',$cat->id) }}">{{ $cat->blog_category }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
                                 <div class="widget">
                                     <h4 class="widget-title">Recent Comment</h4>
                                     <ul class="sidebar__comment">
