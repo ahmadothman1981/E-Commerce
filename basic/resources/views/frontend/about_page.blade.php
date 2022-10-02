@@ -1,6 +1,11 @@
 @extends('frontend.main_master')
 @section('main')
 
+@section('title')
+About | Mansoura Aikido Aikikai
+@endsection
+
+
 <main>
 
             <!-- breadcrumb-area -->

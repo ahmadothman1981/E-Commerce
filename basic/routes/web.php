@@ -20,9 +20,9 @@ use App\Http\Controllers\Home\ContactController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('frontend.index');
-});
+});*/
 
 //Admin All Route
 Route::controller(AdminController::class)->group(function()
@@ -40,6 +40,7 @@ Route::controller(AdminController::class)->group(function()
 //Home All Sliders
 Route::controller(HomeSliderController::class)->group(function()
 {
+    Route::get('/','HomeMain')->name('home');
     Route::get('/home/slide','HomeSlider')->name('home.slide');
     Route::post('/update/slider','UpdateSlider')->name('update.slider');
 
@@ -75,6 +76,7 @@ Route::controller(PortfolioController::class)->group(function()
     Route::get('/delete/portfolio/{id}','DeletePortfolio')->name('delete.portfolio');
 
     Route::get('/portfolio/details/{id}','PortfolioDetails')->name('portfolio.details');
+     Route::get('/portfolio','HomePortfolio')->name('home.portfolio');
     
 
 });

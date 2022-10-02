@@ -115,4 +115,11 @@ class PortfolioController extends Controller
 
         return view('frontend.portfolio_details',compact('portfolio'));
     }//end method
+
+    public function HomePortfolio()
+    {
+         $portfolio = portfolio::latest()->get();
+
+         return view('frontend.portfolio',compact('portfolio'));
+    }//end method
 }

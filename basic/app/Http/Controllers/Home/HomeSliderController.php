@@ -51,4 +51,9 @@ class HomeSliderController extends Controller
     }//end else
 
     }//end method
+
+    public function HomeMain()
+    {
+     return view('frontend.index');  
+    }//end method
 }
